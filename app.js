@@ -51,7 +51,7 @@ const sendTelegramMessage = (text) => {
 app.post('/receive', (req, res) => {
   
   let body = '';
-
+  let message = '';
   req.on('data', (data) => {
     body += data;
   });
