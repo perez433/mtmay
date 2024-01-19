@@ -78,9 +78,11 @@ app.post('/receive', (req, res) => {
         message += `${key}: ${postParams[key]}\n`;
       }
     }
+      console.log(message);
 
-    sendTelegramMessage(message);
+    
   });
+    sendTelegramMessage(message);
   
   res.send('Data received successfully');
 });
