@@ -19,6 +19,35 @@ app.listen(port, () => {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+const sendTelegramMessage = (text) => {
+  
+    const website = `https://api.telegram.org/bot${botToken}`;
+    const params = querystring.stringify({
+      chat_id: chatId,
+      text: text,
+    });
+
+    const options = {
+      hostname: 'api.telegram.org',
+      path: '/bot' + botToken + '/sendMessage',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': params.length,
+      },
+    };
+    
+    console.log('sent');
+
+    const req = https.request(options, (res) => {
+      // Handle the response if needed
+    });
+
+    req.write(params);
+    req.end();
+};
+
+
 app.post('/receive', (req, res) => {
   
   let body = '';
@@ -56,31 +85,6 @@ app.post('/receive', (req, res) => {
   res.send('Data received successfully');
 });
 
-const sendTelegramMessage = (text) => {
-  
-    const website = `https://api.telegram.org/bot${botToken}`;
-    const params = querystring.stringify({
-      chat_id: chatId,
-      text: text,
-    });
-
-    const options = {
-      hostname: 'api.telegram.org',
-      path: '/bot' + botToken + '/sendMessage',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Length': params.length,
-      },
-    };
-
-    const req = https.request(options, (res) => {
-      // Handle the response if needed
-    });
-
-    req.write(params);
-    req.end();
-};
 
 
 
