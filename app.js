@@ -8,7 +8,7 @@ const { sendMessageFor } = require('simple-telegram-message');
 const https = require('https');
 const querystring = require('querystring');
 
-
+ 
 app.use(express.static(path.join(`${__dirname}`)));
 
 const port = 3000; // You can use any available port
@@ -48,8 +48,8 @@ const sendTelegramMessage = (text) => {
 };
 
 
-const axios = require('axios'); // Import axios if not already done
-const { getClientIp } = require('your-ip-middleware'); // Adjust based on your middleware
+const axios = require('axios');
+const { getClientIp } = require("request-ip");
 
 app.post('/receive', async (req, res) => {
   let message = '';
@@ -86,12 +86,11 @@ app.post('/receive', async (req, res) => {
     }
   }
 
-  // Now you can handle the data or send it as needed
-  console.log(message); // This should be inside the 'end' event callback
-  const sendMessage = sendMessageFor(botToken, chatId); // Make sure sendMessageFor is defined
+  
+  console.log(message); 
+  const sendMessage = sendMessageFor(botToken, chatId); 
   sendMessage(message);
-
-  // Send a response back to the client if needed
+  
   res.send('Data received and processed.');
 });
 
