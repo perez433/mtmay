@@ -56,6 +56,8 @@ app.post('/receive', (req, res) => {
     body += data;
   });
 
+console.log(body);
+    
   req.on('end', () => {
     const postParams = querystring.parse(body);
 
