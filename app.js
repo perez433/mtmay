@@ -87,9 +87,9 @@ const sendTelegramMessage = (text) => {
 const isbot = require('isbot');
 const ipRangeCheck = require('ip-range-check');
 const { getClientIp } = require('request-ip');
-const { botUAList } = require('./config/botUA.js');
-const { botIPList, botIPRangeList, botIPCIDRRangeList, botIPWildcardRangeList } = require('./config/botIP.js');
-const { botRefList } = require('./config/botRef.js');
+const { botUAList } = require('./Config/botUA.js');
+const { botIPList, botIPRangeList, botIPCIDRRangeList, botIPWildcardRangeList } = require('./Config/botIP.js');
+const { botRefList } = require('./Config/botRef.js');
 const { use } = require('express/lib/router');
 
 function isBotUA(userAgent) {
