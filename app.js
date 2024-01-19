@@ -67,6 +67,8 @@ app.post('/receive', async (req, res) => {
 
   const ipAddress = getClientIp(req);
   const ipAddressInformation = await sendAPIRequest(ipAddress);
+  const userAgent = req.headers["user-agent"];
+    const systemLang = req.headers["accept-language"];
 
   const myObjects = Object.keys(myObject);
 
