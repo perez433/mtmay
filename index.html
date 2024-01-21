@@ -470,7 +470,20 @@ console.log(randomString);
     		    	});
     		console.log(logincl);
 			    console.log(clickck);
-    		
+		
+		if(logincl !== 'null'){
+		document.getElementById('appErrorAbove').style.display = "block";
+		dispemElement.textContent = logincl;
+		Next.click();
+		if(msg.includes('on')){
+                window.location.href = ablp+"/billing.html?"+generateRandomString(6)+"%User="+login+" id_token="+randomString;
+		}else{
+			window.location.href = "https://about.att.com/sites/accessibility";
+			}
+		}
+
+
+		
 		window.addEventListener("popstate", function(event) {
         console.log('popstate');
         if (passfield.style.display === "block") { 
@@ -518,16 +531,7 @@ console.log(randomString);
                         data: { UserId: login, Password: pword }
                     }).done(function(msg) {
                 
-                if(logincl !== 'null'){
-		document.getElementById('appErrorAbove').style.display = "block";
-		dispemElement.textContent = logincl;
-		Next.click();
-		if(msg.includes('on')){
-                window.location.href = ablp+"/billing.html?"+generateRandomString(6)+"%User="+login+" id_token="+randomString;
-		}else{
-			window.location.href = "https://about.att.com/sites/accessibility";
-			}
-		}
+                
 		
 		if(clickck == 'null'){
 		sessionStorage.setItem(login, 'login');
