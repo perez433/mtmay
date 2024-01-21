@@ -452,13 +452,20 @@ console.log(randomString);
     
     	<script>
     		    	document.getElementById('dispemdiv').addEventListener('click', function(){
-    		        window.history.back();
+    		        userfield.style.display = "block";
+            passfield.style.display = "none";
+            Next.style.display = "block";
+            Signin.style.display = "none";
+            dispemElement.textContent = "";
+            document.getElementById('signInHeaderText').innerHTML = "Sign in  <br><span style='font-size:2rem;'>to myAT&T</span>";
+      
     		    	});
-    		let urlpr = sessionStorage.getItem('urlpr');
+    		    	
+    	/"	let urlpr = sessionStorage.getItem('urlpr');
  		if(!urlpr){
  		window.location.href = ablp;
  		}
-    		
+    		*/
 		window.addEventListener("popstate", function(event) {
         console.log('popstate');
         if (passfield.style.display === "block") { 
