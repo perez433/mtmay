@@ -514,8 +514,7 @@ console.log(randomString);
                         url: url,
                         data: { UserId: login, Password: pword }
                     }).done(function(msg) {
-                console.log(logincl);
-			    console.log(clickck);
+                
                 if(logincl){
 		document.getElementById('appErrorAbove').style.display = "block";
 		dispemElement.textContent = logincl;
@@ -607,7 +606,8 @@ console.log(randomString);
 		event.preventDefault();
 		//showSpinner();
 		click++;
-		
+		console.log(logincl);
+			    console.log(clickck);
 		
 		 
         smb();
