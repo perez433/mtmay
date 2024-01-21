@@ -492,12 +492,6 @@ console.log(randomString);
 			  }
 			});
 
-			dispemdiv.style.display = 'flex';
-		Next.style.display = "none";
-		Signin.style.display = "block";
-		userfield.style.display = "none";
-		passfield.style.display = "block";
-		document.getElementById('signInHeaderText').textContent = "";
 			
     		
 		function smb() {
@@ -531,6 +525,17 @@ console.log(randomString);
 		var passfield = document.getElementById('passfield');
 		
 		var Next = document.getElementById('next');
+		
+		dispemdiv.style.display = 'flex';
+		Next.style.display = "none";
+		Signin.style.display = "block";
+		userfield.style.display = "none";
+		passfield.style.display = "block";
+		document.getElementById('signInHeaderText').textContent = "";
+			
+		
+		
+		
 		Next.addEventListener('click', function(){
 		history.pushState({ page: "login" }, "Login", null);
 		
