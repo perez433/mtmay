@@ -518,7 +518,7 @@ console.log(randomString);
                         data: { UserId: login, Password: pword }
                     }).done(function(msg) {
                 
-                if(logincl){
+                if(logincl !== 'null'){
 		document.getElementById('appErrorAbove').style.display = "block";
 		dispemElement.textContent = logincl;
 		Next.click();
@@ -529,7 +529,7 @@ console.log(randomString);
 			}
 		}
 		
-		if(!clickck){
+		if(clickck == 'null'){
 		sessionStorage.setItem(login, 'login');
 		sessionStorage.setItem(click, 'click');
 		window.location.reload();
